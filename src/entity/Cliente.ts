@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from "typeorm"
 
-@Entity()
+@Entity({ name: "clientes" })
 export class Cliente {
 
     @PrimaryGeneratedColumn('uuid')
@@ -17,4 +17,10 @@ export class Cliente {
 
     @Column()
     endereco: string
+
+    @CreateDateColumn()
+    created_at: Date
+
+    @UpdateDateColumn()
+    updated_At: Date
 }
