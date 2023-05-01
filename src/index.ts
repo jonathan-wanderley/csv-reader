@@ -1,13 +1,15 @@
 import express from "express";
 import cors from "cors";
+
 import "dotenv/config";
+import "reflect-metadata";
+import "./database";
 
-const server = express();
-
+const app = express();
 const port = process.env.PORT || 3000;
 
-server.use(cors());
+app.use(cors());
 
-server.listen(port, () => {
-    `Server running on port ${port}`
+app.listen(port, () => {
+  `Running sucessfully in port ${port}`
 });
