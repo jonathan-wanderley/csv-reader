@@ -1,4 +1,4 @@
-import { Box, Container, Heading } from '@chakra-ui/react'
+import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 function App() {
 
@@ -10,6 +10,22 @@ function App() {
           <Heading as='h1' size='2xl' >
             Upload CSV to database
           </Heading>
+
+          <Tabs marginTop='5' colorScheme='teal'>
+            <TabList>
+              <Tab>Database Settings</Tab>
+              <Tab>File upload</Tab>
+            </TabList>
+
+            <TabPanels>
+              <TabPanel>
+                <p>one!</p>
+              </TabPanel>
+              <TabPanel>
+                <p>two!</p>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
 
         </Box>
       </Container>
