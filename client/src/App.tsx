@@ -1,6 +1,16 @@
-import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack } from '@chakra-ui/react'
+import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack } from '@chakra-ui/react'
+import RadioCard from './components/RadioCard'
 
 function App() {
+  const databaseOptions = ['PostgreSQL', 'MySQL']
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: 'database',
+    defaultValue: 'PostgreSQL',
+    onChange: console.log,
+  })
+
+  const dbGroup = getRootProps()
 
   return (
     <>
@@ -26,6 +36,17 @@ function App() {
                   <Input type='text' placeholder='Database Password' />
                   <Input type='text' placeholder='Database name' />
                 </Stack>
+                
+                <HStack marginTop='5' {...dbGroup}>
+                  {databaseOptions.map((value) => {
+                    const radio = getRadioProps({ value })
+                    return (
+                      <RadioCard key={value} {...radio}>
+                        {value}
+                      </RadioCard>
+                    )
+                  })}
+                </HStack>
               </TabPanel>
               <TabPanel>
                 <p>two!</p>
