@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack } from '@chakra-ui/react'
 
 function App() {
 
@@ -19,7 +19,13 @@ function App() {
 
             <TabPanels>
               <TabPanel>
-                <p>one!</p>
+                <Stack>
+                  <Input type='text' placeholder='Database Host' />
+                  <Input type='number' placeholder='Database Port' />
+                  <Input type='text' placeholder='Database Username' />
+                  <Input type='text' placeholder='Database Password' />
+                  <Input type='text' placeholder='Database name' />
+                </Stack>
               </TabPanel>
               <TabPanel>
                 <p>two!</p>
