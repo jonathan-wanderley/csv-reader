@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Container maxW='2xl' bg='white' centerContent>
-        <Box padding='4' bg='white' color='black' maxW='full'>
+        <Box padding='8' bg='white' color='black' maxW='full' shadow='md' borderRadius='10px'>
           
           <Heading as='h1' size='2xl' >
             Upload CSV to database
@@ -70,6 +70,7 @@ function App() {
                   <Input bgColor='gray.100' maxWidth='40px' type='text' defaultValue=',' maxLength={Number('1')}></Input>
                 </HStack>
                 
+                <Button bgColor='green.500' color='#fff' marginTop='4' float='right'>Upload to database</Button>
               </TabPanel>
             </TabPanels>
           </Tabs>
