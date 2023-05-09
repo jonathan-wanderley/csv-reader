@@ -54,9 +54,9 @@ function App() {
 
                 </Stack>
                 
-                <HStack>
-                  <Button marginTop='3' bgColor='red.500' textColor='#fff' _hover={{ backgroundColor: 'red.300' }} >Test connection</Button>
-                  {/* text */}
+                <HStack float='right' marginTop='4'>
+                  <Text fontSize='2xl' >Status: </Text>
+                  <Button float='right' bgColor='red.500' textColor='#fff' _hover={{ backgroundColor: 'red.300' }} >Test connection</Button>
                 </HStack>
               </TabPanel>
 
