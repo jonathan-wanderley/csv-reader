@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack, Text } from '@chakra-ui/react'
+import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack, Text, Button } from '@chakra-ui/react'
 import RadioCard from './components/RadioCard'
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
 
                 <Stack marginTop='4' >
                   <Text marginBottom='1' fontSize='2xl' >Database type:</Text>
+                  
                   <HStack marginTop='5' {...dbGroup}>
                     {databaseOptions.map((value) => {
                       const radio = getRadioProps({ value })
@@ -50,8 +51,13 @@ function App() {
                       )
                     })}
                   </HStack>
+
                 </Stack>
                 
+                <HStack>
+                  <Button marginTop='3' bgColor='red.500' textColor='#fff' _hover={{ backgroundColor: 'red.300' }} >Test connection</Button>
+                  {/* text */}
+                </HStack>
               </TabPanel>
               <TabPanel>
                 <p>two!</p>
