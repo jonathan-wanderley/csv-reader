@@ -59,8 +59,17 @@ function App() {
                   {/* text */}
                 </HStack>
               </TabPanel>
+
               <TabPanel>
-                <p>two!</p>
+                <Stack>
+                  <Text fontSize='2xl' >CSV File</Text>
+                  <Input type='file' accept='.csv' ></Input>
+                </Stack>
+                <HStack marginTop='3' gap='2'>
+                  <Text fontSize='2xl'>Separator element:</Text>
+                  <Input bgColor='gray.100' maxWidth='40px' type='text' defaultValue=',' maxLength={Number('1')}></Input>
+                </HStack>
+                
               </TabPanel>
             </TabPanels>
           </Tabs>
