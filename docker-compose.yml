@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  db:
+    container_name: db-container
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "5432:5432"
+  api:
+    container_name: api-container
+    build: ./server
+    image: csv-api
+    restart: always
+    command: node dist
+    volumes:
+      - ./server/dist:/usr/src/csv-to-database/dist
+    environment:
+      - PORT=3000
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASS=postgres
+      - DB_NAME=csv
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
