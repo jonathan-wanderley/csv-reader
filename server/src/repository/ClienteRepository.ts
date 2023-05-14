@@ -7,12 +7,12 @@ const ClienteRepository = {
     const { nome, email, telefone, endereco } = clienteData;
 
     const cliente = new Cliente();
-      cliente.nome = nome;
-      cliente.email = email;
-      cliente.telefone = telefone;
-      cliente.endereco = endereco;
+    cliente.nome = nome;
+    cliente.email = email;
+    cliente.telefone = telefone;
+    cliente.endereco = endereco;
 
-      await AppDataSource.manager.save(cliente);
+    await AppDataSource.manager.save(cliente);
   }
 }
 

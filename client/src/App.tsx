@@ -69,7 +69,7 @@ function App() {
                   <Text fontSize='2xl'>Separator element:</Text>
                   <Select maxWidth='20'>
                     <option value='option1'>,</option>
-                    <option value='option2'>.</option>
+                    <option value='option2'>;</option>
                   </Select>
                 </HStack>
                 
