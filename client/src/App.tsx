@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack, Text, Button } from '@chakra-ui/react'
+import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack, Text, Button, Select } from '@chakra-ui/react'
 import RadioCard from './components/RadioCard'
 
 function App() {
@@ -67,7 +67,10 @@ function App() {
                 </Stack>
                 <HStack marginTop='3' gap='2'>
                   <Text fontSize='2xl'>Separator element:</Text>
-                  <Input bgColor='gray.100' maxWidth='40px' type='text' defaultValue=',' maxLength={Number('1')}></Input>
+                  <Select maxWidth='20'>
+                    <option value='option1'>,</option>
+                    <option value='option2'>.</option>
+                  </Select>
                 </HStack>
                 
                 <Button bgColor='green.500' color='#fff' marginTop='4' float='right'>Upload to database</Button>
