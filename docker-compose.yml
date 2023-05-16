@@ -14,12 +14,13 @@ services:
       - "5432:5432"
   api:
     container_name: api-container
-    build: ./server
-    image: csv-api
+    image: node:18
     restart: always
-    command: node dist
+    working_dir: /usr/src/csv-to-database/server
+    command: bash -c "npm install --only=prod && node dist/"
     volumes:
-      - ./server/dist:/usr/src/csv-to-database/dist
+      - ./server/dist/:/usr/src/csv-to-database/server/dist/
+      - ./server/package.json:/usr/src/csv-to-database/server/package.json
     environment:
       - PORT=3000
       - DB_HOST=db
@@ -31,6 +32,25 @@ services:
       - "3000:3000"
     links:
       - db
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+  web:
+    container_name: web-container
+    image: node
+    restart: always
+    working_dir: /usr/src/csv-to-database/client/
+    command: bash -c "npm install && npm rebuild esbuild && npm run dev"
+    volumes:
+      - ./client/package.json:/usr/src/csv-to-database/client/package.json
+      - ./client:/usr/src/csv-to-database/client/
+    environment:
+    - PORT=3002
+    ports:
+      - "3002:3002"
+    links:
+      - api
     logging:
       options:
         max-size: 10m
