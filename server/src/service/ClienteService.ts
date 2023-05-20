@@ -25,7 +25,7 @@ export const ClienteService ={
     const clienteList: ICliente[] = [];
 
     for await(let line of clientesLine) {
-      const clientesLineSplitted = line.split(";");
+      const clientesLineSplitted = line.split(separator);
 
       clienteList.push({
         nome: clientesLineSplitted[0],
