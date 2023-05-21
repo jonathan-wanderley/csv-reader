@@ -1,5 +1,4 @@
 import { Box, Container, Heading, Tabs, TabList, TabPanels, Tab, TabPanel, Input, Stack, useRadioGroup, HStack, Text, Button, Select } from '@chakra-ui/react'
-import RadioCard from './components/RadioCard'
 import { useState } from 'react'
 
 interface inputProps {
@@ -12,28 +11,6 @@ interface inputProps {
 }
 
 function App() {
-  const [formValues, setFormValues] = useState<inputProps>({
-    host: '', port: '', db_name: '', username: '', password: '',
-  } as inputProps)
-  
-  function updateInput(property: string, value: string) {
-    setFormValues((prevState) => {
-      const updatedInputs = { ...prevState };
-      updatedInputs[property] = value;
-      return updatedInputs
-    })
-  }
-
-  const databaseOptions = ['PostgreSQL', 'MySQL']
-  const { getRootProps, getRadioProps } = useRadioGroup({
-    name: 'database',
-    defaultValue: 'PostgreSQL',
-    onChange: console.log,
-  })
-  const dbGroup = getRootProps()
-
-  console.log(formValues);
-  
 
   return (
     <>
@@ -51,50 +28,10 @@ function App() {
             </TabList>
 
             <TabPanels>
-              <TabPanel>
-                <Stack>
-                  <Text fontSize='2xl' >Database credencials:</Text>
-                  <Input
-                    type='text' placeholder='Database Host'
-                    value={formValues.host} onChange={(e) => updateInput('host', e.target.value)}
-                  />
-                  <Input
-                    type='number' placeholder='Database Port'
-                    value={formValues.port} onChange={(e) => updateInput('port', e.target.value)}
-                  />
-                  <Input
-                    type='text' placeholder='Database Username'
-                    value={formValues.username} onChange={(e) => updateInput('username', e.target.value)}
-                  />
-                  <Input
-                    type='text' placeholder='Database Password'
-                    value={formValues.password} onChange={(e) => updateInput('password', e.target.value)}
-                  />
-                  <Input
-                    type='text' placeholder='Database name'
-                    value={formValues.db_name} onChange={(e) => updateInput('db_name', e.target.value)}
-                  />
-                </Stack>
-
-                <Stack marginTop='4' >
-                  <Text marginBottom='1' fontSize='2xl' >Database type:</Text>
-                  
-                  <HStack marginTop='5' {...dbGroup}>
-                    {databaseOptions.map((value) => {
-                      const radio = getRadioProps({ value })
-                      return (
-                        <RadioCard key={value} {...radio}>
-                          {value}
-                        </RadioCard>
-                      )
-                    })}
-                  </HStack>
-
-                </Stack>
-                
-                <HStack float='right' marginTop='4'>
+              <TabPanel>                          
+                <HStack marginTop='4'>
                   <Text fontSize='2xl' >Status: </Text>
-                  <Button float='right' bgColor='red.500' textColor='#fff' _hover={{ backgroundColor: 'red.300' }} >Test connection</Button>
+                  <Button bgColor='red.500' textColor='#fff' _hover={{ backgroundColor: 'red.300' }} >Try connection</Button>
                 </HStack>
               </TabPanel>
 
