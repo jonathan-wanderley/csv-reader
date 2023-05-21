@@ -13,6 +13,9 @@ const ClienteRepository = {
     cliente.endereco = endereco;
 
     await AppDataSource.manager.save(cliente);
+  },
+  isDatabaseConnected: () => {
+    return AppDataSource.isInitialized;
   }
 }
 
