@@ -7,7 +7,7 @@ export const ClienteController = {
     const { file } = req;
     const { separator } = req.query;
 
-    const result = await ClienteService.add(file, separator as string)
+    const result = await ClienteService.add(file, separator as string);
 
     if(result.error) {
       return res.status(400).json(result);

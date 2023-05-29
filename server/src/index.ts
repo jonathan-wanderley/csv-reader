@@ -3,7 +3,7 @@ import cors from "cors";
 
 import "dotenv/config";
 import "reflect-metadata";
-//import "./database";
+import "./database";
 import { routes } from "./routes";
 
 const app = express();
